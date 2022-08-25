@@ -2,42 +2,41 @@ import java.util.Scanner;
 
 public class biseccion {
     
-    public static void main(String[] args) throws Exception {
-        //Invoca módulos para realizar biseccion
+    public static void main(String[] args) {
+        //Algoritmo que busca raices aproximadas utilizando el metodo de biseccion
         Scanner sc = new Scanner(System.in);
-        double a, b, E, r = 0;
+        int i = 0;
+        double a, b, E, r;
         
         System.out.print("Ingrese el valor de a: ");
         a = sc.nextDouble();
         System.out.print("Ingrese el valor de b: ");
         b = sc.nextDouble();
-        System.out.print("Ingrese el valor de E: ");
-        E = sc.nextDouble();
 
         if (f(a)*f(b) < 0) {
+            System.out.print("Ingrese el valor de E: ");
+            E = sc.nextDouble();
             do {
                 r = (a+b)/2;
-                System.out.println(r);
+                i++;
+                System.out.println(i+"° iteracion: "+r);
                 if (f(a)*f(r) < 0) {
                     b = r;
                 } else {
                     a = r;
                 }
             } while(Math.abs(f(r))>E);
+
+            System.out.println("La raiz aproximada entre el intervalo ingresado es: "+r);
         } else {
-            System.out.println("");
+            System.out.println("No se cumple la condicion f(a)*f(b)<0 con los valores ingresados.");
         }
-        
-        System.out.println("La raiz aproximada es: "+r);
     }
 
     public static double f(double x) {
-        //retorna el calculo con algun x ingresado
-        double result;
-        result = (Math.pow(x,3))-(2*x)- 1; //2*Math.sin(x+1)Ingresar funcion a evaluar en esta linea
-        return result;
+        //retorna el calculo de una funcion con algun x ingresado por parametro
+        double res;
+        res = 2*Math.sin(x+1); //Ingresar funcion a evaluar en esta linea
+        return res;
     }
-
-    
-
 }
