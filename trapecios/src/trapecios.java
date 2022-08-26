@@ -17,21 +17,21 @@ public class trapecios {
         System.out.println("h = " + h);
 
         System.out.println("Area aproximada: " + formTrape(a, b, h, n));
-
     }
 
     public static double formTrape(double a, double b, double h, double n) {
         //Formula de trapecios
-        double sumat = 0, val;
+        double sumat = 0, x0;
         //Almaceno valor de f(a)
-        val = f(a);
+        x0 = f(a);
         //Aumento a
         a = a + h;
+
         for (int i = 1; i < n; i++) { //Salta en cada x del intervalo
             sumat = f(a) + sumat;
             a = a + h;
         }
-        return ((h/2)*(val + f(b) + (2 * sumat)));
+        return ((h/2)*(x0 + f(b) + (2 * sumat)));
     }
 
     public static double f(double x) {
