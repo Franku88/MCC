@@ -5,19 +5,13 @@ Almacena las derivadas parciales y formula de derivada direccional en sus respec
 
 Tomando en cuenta los siguientes datos:
 
-Puntos|Altura/Curva
-
-- A\t|9.23mts
-
-- C,D\t| 8 mts
-
-- B,E\t| 6 mts
-
-- F,G\t| 4 mts
-
-- H,I\t| 2 mts
-
-- J\t| 0 mts
+- Puntos|Altura/Curva
+- A|9.23mts
+- C,D| 8 mts
+- B,E| 6 mts
+- F,G| 4 mts
+- H,I| 2 mts
+- J| 0 mts
 
 El camino debe partir desde A y terminar en J. 
 Comienza creando vectores con puntos desde una curva a la siguiente (Ej: AC, AD (parten desde la curva de 9.23mts a la de 8mts)), comparando las derivadas entre la direcciones de estos vectores.
