@@ -4,7 +4,7 @@ Algoritmo que con ayuda de las clases Punto y Vector, busca el camino con menor 
 Almacena las derivadas parciales y formula de derivada direccional en sus respectivos módulos, para ser utilizados/modificados cuando sea necesario.
 
 Tomando en cuenta los siguientes datos:
-- Puntos | Altura/Curva
+Puntos | Altura/Curva
 
 - A      | 9.23mts
 
