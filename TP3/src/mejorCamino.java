@@ -37,14 +37,14 @@ public class mejorCamino {
                 pendiente2 = calcular_derivada_direccional(inicio,puntos[i][j]);
 
                 if (Math.abs(pendiente1) > Math.abs(pendiente2)) {
-                    System.out.println("-- Hacia el punto "+puntos[i][j].toString()+" tiene menor tasa de variacion. --");
                     llegada = puntos[i][j];
                     pendiente1 = pendiente2;
                 }
             }
-            System.out.println("");
+            System.out.println("-- Hacia el punto "+llegada.toString()+" tiene menor tasa de variacion. --");
             camino = camino+"-"+llegada.getNombre();
             inicio = llegada;
+            System.out.println("");
         }
 
         System.out.println("--- Camino con menor tasa de variacion: "+camino+" ---");
