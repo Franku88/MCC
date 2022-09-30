@@ -1,4 +1,8 @@
 ## TPO 3
+Autores:
+- Benitez, Franco Fabian
+- Diaz, Guillermo Nicolas
+- Iovaldi, Sebastian Angel
 
 Algoritmo que con ayuda de las clases Punto y Vector, busca el camino con menor tasa de variacion.
 Almacena las derivadas parciales y formula de derivada direccional en sus respectivos módulos, para ser utilizados/modificados cuando sea necesario.
