@@ -3,7 +3,7 @@
  * @author fabian.benitez, guillermo.diaz, sebastian.iovaldi
  * 
  */
-public class derivadaDireccional {
+public class mejorCamino {
     public static void main(String[] args) throws Exception {
         //Puntos
         Punto A,B,C,D,E,F,G,H,I,J;
