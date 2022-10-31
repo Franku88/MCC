@@ -26,8 +26,8 @@ public class SumaRiemann {
      * @return
      */
     public static double Riemann(double x0, double x1, double y0, double y1, double m) {
-        double ladoX = x1 - x0; //Medida del lado X
-        double ladoY = y1 - y0; //Medida del lado Y
+        double ladoX = x1-x0; //Medida del lado X
+        double ladoY = y1-y0; //Medida del lado Y
         double x, y; //Valores donde se evaluará la funcion
         double dx, dy; //Valor de aumento en cada coordenada (lados de los cuadrados)
         double dA; //Area de los cuadrados
@@ -35,16 +35,18 @@ public class SumaRiemann {
         
         dx = ladoX/m; //Divide el lado en m porciones
         dy = ladoY/m; //Divide el lado en m porciones
-        dA = dx * dy; //Area de los cuadrados
+        dA = dx*dy; //Area de los cuadrados
         x = x0+dx; //Calcula desde x0+dx
         y = y0+dy; //Calcula desde y0+dy
         
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= m; j++) {
-                suma = (f(x,y)*dA) + suma;
-                y = y + dy;
+                //Calcula y suma f(x,y), luego aumenta y en dy
+                suma = (f(x,y)*dA)+suma;
+                y = y+dy;
             }
-            x = x + dx;
+            //Aumenta x en dx y reinicia valor de y
+            x = x+dx;
             y = y0+dy;
         }
         return suma;
@@ -57,7 +59,7 @@ public class SumaRiemann {
      * @return
      */
     public static double f(double x, double y) {
-         double resultado = 16-(Math.pow(x,2))-(2*Math.pow(y,2)); //Reemplazar dependiendo el caso
+        double resultado = 16-(Math.pow(x,2))-(2*Math.pow(y,2)); //Reemplazar dependiendo el caso
         return resultado;
     }
     
