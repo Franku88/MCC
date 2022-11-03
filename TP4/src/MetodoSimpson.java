@@ -7,8 +7,8 @@ public class MetodoSimpson {
     public static void main(String args[]) {
         /*Algoritmo principal, aproxima volumen de f(x,y) por metodo de Simpson 1/3, invoca al metodo 
         con una region R=[a,b]X[c,d] y divisiones de la misma (m y n)*/
-        double a = 0, b = 2, c = 0, d = 2;  //Reemplazar region, m y n segun se necesite aproximar
-        int m = 2, n = 2;
+        double a = 0, b = 1, c = 0, d = 1;  //Reemplazar region, m y n segun se necesite aproximar
+        int m = 3, n = 3;
         double volumenAprox;
         
         volumenAprox = Simpson(a, b, c, d, m, n);
@@ -32,7 +32,7 @@ public class MetodoSimpson {
      * @return
      */
     public static double Simpson(double a, double b, double c, double d, double m, double n) {
-        double x, y, h, k, suma = 0;
+        double x, y, h, k, I, suma = 0;
         //Rectangulo dividido en rectangulos de h*k
         h = (b-a)/m;
         k = (d-c)/n;
@@ -41,23 +41,28 @@ public class MetodoSimpson {
         y = c;
 
         for (int j = 0; j <= n; j++) { //Aumenta y n+1 veces
+            I = 0;
             for (int i = 0; i <= m; i++) { //Aumenta x m+1 veces
-                if (j%2 == 1) { //Si j es impar, multiplica por 4
-                    if (i%2 == 1) { //Si i es impar, multiplica por 4
-                        suma = (16*(h/3)*f(x,y))+suma;
-                    } else { //Si i es par, no multiplica
-                        suma = (4*(h/3)*f(x,y))+suma;
-                    }
-                } else { //Si j es par, no multiplica
-                    if (i%2 == 1) { //Si i es impar, multiplica por 4
-                        suma = (4*(h/3)*f(x,y))+suma;
-                    } else { //Si i es par, no multiplica
-                        suma = ((h/3)*f(x,y))+suma;
+                if (i == 0 || i == m) {
+                    I = f(x,y)+I;
+                } else {
+                    if (i%2 == 1) {
+                        I = (4*f(x,y))+I;
+                    } else {
+                        I = (2*f(x,y))+I;
                     }
                 }
                 //Aumento x en h
                 x = x+h;
             }
+            if (j != 0 && j != n) {
+                if (j%2 == 1) {
+                    I = I*4;
+                } else {
+                    I = I*2;
+                }
+            }
+            suma = ((h/3)*I)+suma;
             //Reinicio x, aumento y en k
             x = a;
             y = y+k;
@@ -74,7 +79,7 @@ public class MetodoSimpson {
      * @return
      */
     public static double f(double x, double y) {
-        double resultado = x-(2*y); //Reemplazar funcion aca
+        double resultado = Math.pow(x,2)+Math.pow(y,2); //Reemplazar funcion aca
         return resultado;
     }
  }
