@@ -8,7 +8,7 @@ public class SumaRiemann {
         /*Algoritmo principal, aproxima volumen de f(x,y) con sumatoria de Riemannm, invoca la sumatoria 
         con una region S=[x0,x1]X[y0,y1] y un limite de sumatoria m=n por parametro*/
         double volumenAprox;
-        double x0 = 0, x1 = 2, y0 = 0, y1 = 2, m = 16; //Reemplazar region y m segun se necesite aproximar
+        double x0 = 0, x1 = 2, y0 = 0, y1 = 1, m = 2; //Reemplazar region y m segun se necesite aproximar
         volumenAprox = Riemann(x0,x1,y0,y1,m); 
         System.out.println("-------------------------------------------------------------------------------------------");
         System.out.print("Volumen aproximado por Sumatoria de Riemann (S=["+x0+","+x1+"]x["+y0+","+y1+"] y m=n="+m+"): ");
@@ -42,13 +42,14 @@ public class SumaRiemann {
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= m; j++) {
                 //Calcula y suma f(x,y), luego aumenta y en dy
-                suma = (f(x,y)*dA)+suma;
+                suma = f(x,y)+suma;
                 y = y+dy;
             }
             //Aumenta x en dx y reinicia valor de y
             x = x+dx;
             y = y0+dy;
         }
+        suma = suma*dA;
         return suma;
     }
 
@@ -59,7 +60,7 @@ public class SumaRiemann {
      * @return
      */
     public static double f(double x, double y) {
-        double resultado = 16-(Math.pow(x,2))-(2*Math.pow(y,2)); //Reemplazar dependiendo el caso
+        double resultado = Math.pow(x,2)+(4*Math.pow(y,2)); //Reemplazar dependiendo el caso
         return resultado;
     }
     

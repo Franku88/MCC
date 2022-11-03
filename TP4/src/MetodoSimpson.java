@@ -74,7 +74,7 @@ public class MetodoSimpson {
      * @return
      */
     public static double f(double x, double y) {
-        double resultado = Math.pow(x,2)+Math.pow(y,2); //Reemplazar funcion aca
+        double resultado = x-(2*y); //Reemplazar funcion aca
         return resultado;
     }
  }
