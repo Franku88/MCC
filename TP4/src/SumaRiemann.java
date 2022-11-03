@@ -18,10 +18,10 @@ public class SumaRiemann {
 
     /**
      * Aproxima el volumen de f(x,y) mediante Sumatoria de Rieman en una region  S=[x0,x1]X[y0,y1]
-     * @param x0 //Extremo de integración (debe ser igual a y0 para generar cuadrados)
-     * @param x1 //Extremo de integración (debe ser igual a y1 para generar cuadrados)
-     * @param y0 //Extremo de integración (debe ser igual a x0 para generar cuadrados)
-     * @param y1 //Extremo de integración (debe ser igual a x1 para generar cuadrados)
+     * @param x0 //Extremo de integración
+     * @param x1 //Extremo de integración 
+     * @param y0 //Extremo de integración 
+     * @param y1 //Extremo de integración 
      * @param m //Limite de las sumatorias (m=n)
      * @return
      */
