@@ -43,22 +43,22 @@ public class MetodoSimpson {
         for (int j = 0; j <= n; j++) { //Aumenta y n+1 veces
             I = 0;
             for (int i = 0; i <= m; i++) { //Aumenta x m+1 veces
-                if (i == 0 || i == m) {
+                if (i == 0 || i == m) { //Si i es 0 o m, suma f(x,y)
                     I = f(x,y)+I;
                 } else {
-                    if (i%2 == 1) {
+                    if (i%2 == 1) { //Si no, si impar, suma 4*f(x,y)
                         I = (4*f(x,y))+I;
-                    } else {
+                    } else { //Si es par, suma 2*f(x,y)
                         I = (2*f(x,y))+I;
                     }
                 }
                 //Aumento x en h
                 x = x+h;
             }
-            if (j != 0 && j != n) {
-                if (j%2 == 1) {
+            if (j != 0 && j != n) { //Si j no es 0 ni n
+                if (j%2 == 1) { //Si es impar, multiplica I*4
                     I = I*4;
-                } else {
+                } else { //Si es par, multiplica I*2
                     I = I*2;
                 }
             }
